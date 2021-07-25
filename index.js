@@ -1,6 +1,29 @@
 // Import stylesheets
-import './style.css';
+import Swiper from 'swiper';
+import './css/style.css';
+import './css/swiper.min.css';
+import './css/animate.css';
 
-// Write Javascript code!
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+new Swiper('.swiper-container', {
+  loop: true,
+  navigation: {
+    nextEl: '.arrow'
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 30
+    },
+    541: {
+      slidesPerView: 2,
+      spaceBetween: 60
+    }
+  }
+});
+
+const menuButton = document.querySelector('.menu-button');
+const menu = document.querySelector('.header');
+menuButton.addEventListener('click', function() {
+  menuButton.classList.toggle('menu-button-active');
+  menu.classList.toggle('header-active');
+});
